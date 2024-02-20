@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProjetoMercado.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Produto</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeEstoqueProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDoCodigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Fornecedor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeEstoqueProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDoCodigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Fornecedor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdutoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdutoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdutoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

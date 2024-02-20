@@ -1,0 +1,92 @@
+﻿@model ProjetoMercado.Models.Venda
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/ProjetoMercado.styles.css" asp-append-version="true" />
+
+<div class="pode">
+<h1>Impressão</h1>
+
+<div>
+    <h4>Venda</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+        <br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+            <br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataVenda)
+        </dt>
+            <br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataVenda)
+        </dd>
+            <br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_Cliente)
+        </dt>
+            <br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id_Cliente)
+        </dd>
+            <br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_Vendedor)
+        </dt>
+            <br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id_Vendedor)
+        </dd>
+            <br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_Pagamento)
+        </dt>
+            <br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id_Pagamento)
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <hr />
+            <th>
+                <h3>Produtos do Mercado</h3>
+            </th>
+            <th></th>
+            <th>
+                <h3>Quantidade de produtos</h3>
+            </th>
+        </tr>
+         </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProdutosList)
+        {
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Produto.QuantidadeEstoqueProduto)
+                    </td>
+                </tr>
+
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+</div>
